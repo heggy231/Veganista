@@ -1,0 +1,52 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1>{{ input_name.title() }}</h1>
+
+  <div class="nutritional_data">
+      <canvas id="polarAreaChart"></canvas>
+      <div id="polarLegend" class="polar-legend"></div>
+    </div>
+
+
+    <script> 
+      var data = {{ data|tojson|safe }};
+      var data = JSON.parse(data);
+      var nutrition_data = [
+      {
+        value: data['percentage_of_carbs'],
+        color:"#F7464A",
+        highlight: "#FF5A5E",
+        label: "% Carbohydrates"
+      },
+      {
+        value: data['percentage_of_protein'],
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "% Protein"
+      },
+      {
+        value: data['percentage_of_fat'],
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "% Fat"
+      } 
+  ];
+    
+    var ctx_polar_area = $("#polarAreaChart").get(0).getContext("2d");
+
+    var myPolarAreaChart = new Chart(ctx_polar_area).PolarArea(nutrition_data, { 
+                  animateScale: true, responsive: true}); 
+    $('#polarLegend').html(myPolarAreaChart.generateLegend())
+    // var ctx_donut = $("#donutChart").get(0).getContext("2d");
+    // function makeDonutChart(data) {
+    //  var myDonutChart = new Chart(ctx_donut).Doughnut(data, options);
+    //   $('#donutLegend').html(myDonutChart.generateLegend());
+    // };
+  </script>
+
+{% include "actions.html" %}
+
+{% endblock %}
