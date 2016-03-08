@@ -162,7 +162,7 @@ def process_input():
     input_resp = request.args.get('input')
 
     #If the user input is not a string, then return the error page. 
-    
+
     if input_resp:
         input_resp = input_resp.lower()
         input_obj = Input(user_id=user_id, eaten_at=date.today(), input_name=input_resp)
@@ -238,7 +238,7 @@ def show_recipe_date():
     recipe_inputs = Input.query.filter_by(eaten_at = recipe_date, user_id=user_id).all()
 
     #Convert the date into a string month/date format 
-    new_recipe_date = recipe_date.strftime('%m/%d')
+    new_recipe_date = recipe_date.strftime('%b %d')
 
     #Grab user information from session and user table. 
     user_id=session["user_id"]
@@ -273,12 +273,11 @@ def calculate_recipe_totals():
 
     # Created a sorted list of the dates during which the user inputted dishes. 
     date_list = sorted(date_dictionary_first.keys())
-    print "here is my date_list: ", date_list 
 
     # Creating the x axis for the line graph with the dates formatted properly 'mm/dd'
     new_date_list = []
     for item in date_list:
-        item = item.strftime('%m/%d')
+        item = item.strftime('%b %d')
         new_date_list.append(item)
 
     # Creating a dictionary with the key being the datetime date, and the value being the list of dish objects inputted during that date. 
@@ -307,7 +306,7 @@ def calculate_recipe_totals():
                 total_t_protein += recipe_obj.percentage_of_protein
             
 
-        key = key.strftime('%m/%d')
+        key = key.strftime('%b %d')
         total_fat = "{0:.2f}".format(total_t_fat)
         total_carbs = "{0:.2f}".format(total_t_carbs)
         total_protein = "{0:.2f}".format(total_t_protein)
@@ -357,7 +356,6 @@ def calculate_recipes(recipe_date):
     # Filter out each recipe based on input name in the Caching Database 
     # Grab nutritional data from each recipe 
     # Add all of them up. 
-    print "here is  my recipe_date: ", type(recipe_date)
     user_id = session["user_id"]
     total_t_fat = 0 
     total_t_carbs = 0 
@@ -365,7 +363,10 @@ def calculate_recipes(recipe_date):
 
     # Want to calculate the total percentages of fat, carbs and protein 
     recipe_inputs = Input.query.filter_by(eaten_at = recipe_date, user_id = user_id).all()
- 
+
+    recipe_date = datetime.strptime(recipe_date, '%Y-%m-%d')
+    new_recipe_date = recipe_date.strftime('%b %d')
+
     #Storing dish total calculations for a specific date. 
     for recipe in recipe_inputs:
         recipe_pot = Recipe.query.filter(Recipe.input_name == recipe.input_name).first()
@@ -394,7 +395,7 @@ def calculate_recipes(recipe_date):
 
 
 
-    return render_template("recipes_date.html", recipe_date=recipe_date, total_fat=total_t_fat, total_carbs=total_t_carbs,
+    return render_template("recipes_date.html", new_recipe_date=new_recipe_date, recipe_date=recipe_date, total_fat=total_t_fat, total_carbs=total_t_carbs,
                                              total_protein=total_t_protein, recipe_totals=recipe_totals)
 
 
