@@ -162,10 +162,8 @@ def process_input():
     input_resp = request.args.get('input')
 
     #If the user input is not a string, then return the error page. 
-    if input_resp.isalpha() != True:
-        flash("Please input a dish name!")
-        return redirect('/error')
-    else:
+    
+    if input_resp:
         input_resp = input_resp.lower()
         input_obj = Input(user_id=user_id, eaten_at=date.today(), input_name=input_resp)
 
@@ -182,6 +180,10 @@ def process_input():
         #Setting default to the current date. 
         current_date = date.today().strftime('%Y-%m-%d')
         return redirect(url_for('show_recipe_date', date=current_date))
+    else: 
+        flash("Please input a recipe!")
+        return redirect('/error')
+
 
 
 @app.route('/user-log/input_name')
