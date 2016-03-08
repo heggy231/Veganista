@@ -161,7 +161,12 @@ def process_input():
     user_id=session["user_id"]
     input_resp = request.args.get('input')
 
-    #If the user input is not a string, then return the error page. 
+
+    # if the user input is None, then return the error page. 
+    # if the user input is not a string, then return the error page. 
+    for i in input_resp:
+        if i.isalpha() != True:
+            return redirect(url_for('has_found_error'), input_name=input_resp)
 
     if input_resp:
         input_resp = input_resp.lower()
@@ -182,7 +187,7 @@ def process_input():
         return redirect(url_for('show_recipe_date', date=current_date))
     else: 
         flash("Please input a recipe!")
-        return redirect('/error')
+        return redirect(url_for('has_found_error'), input_name=input_resp)
 
 
 
@@ -295,7 +300,6 @@ def calculate_recipe_totals():
 
         for recipe in value:
             recipe_obj = Recipe.query.filter_by(input_name = recipe.input_name).first()
-            print "this is my recipe object: ", recipe_obj
             if recipe_obj == None:
                  return redirect(url_for('recipe_nutrition', input_name=recipe.input_name))
 
@@ -399,11 +403,14 @@ def calculate_recipes(recipe_date):
                                              total_protein=total_t_protein, recipe_totals=recipe_totals)
 
 
-@app.route('/error')
-def has_found_error():
+@app.route('/error/<input_name>')
+def has_found_error(input_name):
     """Return an HTML template saying something went wrong..."""
 
     # error page will render if Edamam API returns no results, and no dish name is stored in the database. 
+    input_error = Input.query.filter_by(input_name=input_name).first()
+    db.session.delete(input_error)
+    db.session.commit()
     return render_template("error.html")
     
 
