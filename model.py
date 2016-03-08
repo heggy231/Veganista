@@ -67,7 +67,7 @@ class Input(db.Model):
 
 
     input_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    input_name = db.Column(db.String(200), primary_key=True)
+    input_name = db.Column(db.String(200))
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
     eaten_at = db.Column(db.Date)
     

@@ -164,9 +164,6 @@ def process_input():
 
     # if the user input is None, then return the error page. 
     # if the user input is not a string, then return the error page. 
-    for i in input_resp:
-        if i.isalpha() != True:
-            return redirect(url_for('has_found_error'), input_name=input_resp)
 
     if input_resp:
         input_resp = input_resp.lower()
@@ -527,7 +524,7 @@ def recipe_nutrition(input_name):
 
     else:
         flash ("Oops...")
-        return redirect('/error')
+        return redirect(url_for('has_found_error', input_name=input_name))
 
 
 
