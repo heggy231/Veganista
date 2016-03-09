@@ -89,50 +89,6 @@ class GraphCalculations(TestCase):
 
 
 
-
-
-
-  # 
-
-#     result = self.client.get('/')
-
-# class IntegrationTestCase(TestCase):
-#   """Integration Tests for the flask server"""
-
-#   def setUp(self):
-#     """Do before every test"""
-
-#     # Get the Flask test client
-#     self.client = app.test_client()
-
-#     # Show Flask errors that happen during tests
-#     app.config['TESTING'] = True
-
-#     # Connect to test database
-#     connect_to_db(app, "postgresql:///testdb")
-#     db.create_all()
-
-#   def tearDown(self):
-#     """Do at end of every test."""
-
-#     db.session.close()
-#     db.drop_all()
-
-#   def test_homepage(self):
-#     """Tests result of homepage."""
-
-#     result = self.client.get("/")
-#     self.assertEqual(result.status_code, 200)
-#     self.assertIn('text/html', result.headers['Content-Type'])
-
-#   def test_user(self):
-#     """Test the user page"""
-
-#     result = self.client.get("/user")
-
-    # self.assertEqual(result.status_code, 302)
-
-
 if __name__ == '__main__':
   unittest.main()
 
