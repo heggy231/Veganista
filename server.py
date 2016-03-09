@@ -301,7 +301,6 @@ def calculate_recipe_totals():
                  return redirect(url_for('recipe_nutrition', input_name=recipe.input_name))
 
             else:
-                print "here is my recipe: ", recipe 
                 total_t_fat += recipe_obj.percentage_of_fat
                 total_t_carbs += recipe_obj.percentage_of_carbs
                 total_t_protein += recipe_obj.percentage_of_protein
