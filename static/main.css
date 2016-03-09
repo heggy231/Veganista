@@ -20,12 +20,16 @@
 	color: #ccc;
 };
 
+ul {
+    list-style-type: none !important;
+}
+
 .polar-legend li span{
     display: inline-block;
     width: 12px;
     height: 12px;
     margin-right: 5px;
-    list-style-type: none;
+   	list-style-type: none;
 }
 
 .line-legend li span{
@@ -34,6 +38,7 @@
     height: 12px;
     margin-right: 5px;
     list-style-type: none;
+    
 }
 
 .bar-legend li span{

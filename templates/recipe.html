@@ -40,7 +40,7 @@
     console.log(data);
 
     var myPolarAreaChart = new Chart(ctx_polar_area).PolarArea(nutrition_data, { 
-                  animateScale: true, responsive: true, legendTemplate: "<ul class=\"polar-legend\">" +
+                  animateScale: true, responsive: true, legendTemplate: "<ul style=\"list-style: none\" class=\"polar-legend\">" +
                                                                       "<% for (var i=0; i<nutrition_data.length; i++)\{\%>" +
                                                                         "<li><span style=\"background-color:<%=nutrition_data[i].color%>\">&nbsp&nbsp&nbsp&nbsp;</span><%if(nutrition_data[i].label)\{\%> <%=nutrition_data[i].label%><\%\}%></li>" 
                                                                         + "<\%\}%></ul>"}); 
