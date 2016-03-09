@@ -313,7 +313,7 @@ def calculate_recipe_totals():
         total_protein = "{0:.2f}".format(total_t_protein)
 
 
-        total_percentages[key] = {"total fat" : total_t_fat, "total protein" : total_t_protein, "total carbs" : total_t_carbs}
+        total_percentages[key] = {"total fat" : total_fat, "total protein" : total_protein, "total carbs" : total_carbs}
     
 
     # Creating three lists which will be passed into each dataset of the line chart: for percentage of protein, fat and carbs. 
