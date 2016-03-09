@@ -38,7 +38,7 @@
     var ctx_polar_area = $("#polarAreaChart").get(0).getContext("2d");
 
     var myPolarAreaChart = new Chart(ctx_polar_area).PolarArea(nutrition_data, { 
-                  animateScale: true, responsive: true}); 
+                  animateScale: true, responsive: true, tooltipTemplate: "<%= value %>%"}); 
     $('#polarLegend').html(myPolarAreaChart.generateLegend())
     // var ctx_donut = $("#donutChart").get(0).getContext("2d");
     // function makeDonutChart(data) {

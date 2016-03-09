@@ -38,7 +38,7 @@ class GraphCalculations(TestCase):
     self.assertIn('d_total_fat = [87.21399872334617, 188.53615655608982, 32.13505666666669, 366.99382250971775, 119.90530117466679]', results.data )
     self.assertIn('d_total_protein = [63.087606135, 106.32030300041666, 18.27962454666667, 130.2912317318333, 104.1618023604]', results.data)
     self.assertIn('d_total_fat = [87.21399872334617, 188.53615655608982, 32.13505666666669, 366.99382250971775, 119.90530117466679]', results.data)
-    self.assertIn('data_list = ["02/29", "03/01", "03/02", "03/03", "03/04"]', results.data)
+    self.assertIn('data_list = ["Feb 29", "Mar 01", "Mar 02", "Mar 03", "Mar 04"]', results.data)
     self.assertIn('text/html', results.headers['Content-Type'])
     self.assertEqual(results.status_code, 200)
 
@@ -67,11 +67,6 @@ class GraphCalculations(TestCase):
 
     self.assertEqual(results.status_code, 302)
 
-  def test_redirect_error(self):
-
-    results = self.client.get('/error')
-
-    self.assertIn('<h1>No vegan dishes were found for one (or more) of your entries!</h1>', results.data)
 
   def test_show_recipes_date(self):
 
