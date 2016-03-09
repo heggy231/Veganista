@@ -33,36 +33,13 @@
 
 
    <script>
-
-    Chart.types.Bar.extend({
-    name: "BarAlt",
-    draw: function () {
-        Chart.types.Line.prototype.draw.apply(this, arguments);
-        
-        var ctx = this.chart.ctx;
-        ctx.save();
-        // text alignment and color
-        ctx.textAlign = "center";
-        ctx.textBaseline = "bottom";
-        ctx.fillStyle = this.options.scaleFontColor;
-        // position
-        var x = this.scale.xScalePaddingLeft * 0.4;
-        var y = this.chart.height / 2;
-        // change origin
-        ctx.translate(x, y)
-        // rotate text
-        ctx.rotate(-90 * Math.PI / 180);
-        ctx.fillText(this.datasets[0].label, 0, 0);
-        ctx.restore();
-    }
-  });
  
 
       $(function() {
       var data = {{ recipe_totals|tojson|safe }};
       var data = JSON.parse(data);
       var nutrition_data = { 
-      	labels: ["Total Fat", "Total Carbs", "Total Protein"],
+      	labels: ["% Total Fat", "% Total Carbs", "% Total Protein"],
       	datasets: [
       	{
       		label: "Daily percentages",
@@ -80,7 +57,8 @@
 	  var options = {
 	    scaleBeginAtZero: true,
 	    animation: true,
-	    responsive: true
+	    responsive: true,
+
 	   };
 
 
