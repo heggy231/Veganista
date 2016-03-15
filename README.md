@@ -24,15 +24,15 @@ Veganista is open source on Github.
 
 * Dish Directory: Users can view the list of dishes they have entered into Veganista. 
 
-<!-- <img src="/dish_directory.png" alt="dish_directory"> -->
+<img src="/dish_directory.png" alt="dish_directory">
 
 * Dishes by Day: Users can view dishes they have eaten on a particular day. 
 
-<!-- <img src="/time_dishes.gif" alt="time"> -->
+<img src="/time_dishes.gif" alt="time">
 
 * Daily nutritional progress: Users can view a bar chart that shows them the total percentages of fat, protein and carbohydrates they have consumed for the day, giving them an estimate of how much more they need to consume, or whether they have exceeded their recommendations. 
 
-<!-- <img src="/daily_progress.gif" alt="time"> -->
+<img src="/daily_progress.gif" alt="time">
 
 * Overall nutritional progress: Users can view a line chart that shows them their totals of fat, carbohydrates and protein percentages over time, so that they can gauge whether they are improving their nutritional intake or not. 
 
