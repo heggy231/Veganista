@@ -115,7 +115,7 @@ def show_user_page():
     user_id=session["user_id"]
 
     if user_id != None:
-        # To-do: Store e-mail and password in user data table. 
+        # If the session is not storing the user id, grab it from the session.
         user = User.query.get(user_id)
 
         #grab the first name of the user object. 
@@ -307,6 +307,7 @@ def calculate_recipe_totals():
             
 
         key = key.strftime('%b %d')
+        # create a function out of this. 
         total_fat = "{0:.2f}".format(total_t_fat)
         total_carbs = "{0:.2f}".format(total_t_carbs)
         total_protein = "{0:.2f}".format(total_t_protein)
