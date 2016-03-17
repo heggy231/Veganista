@@ -40,4 +40,6 @@ Veganista is open source on Github.
 
 
 ### Version 2.0
-* Send users daily reminders through text to intake daily supplements of Vitamin B-12 and Nutritional Yeast through the Twilio API 
+* Send users daily reminders through text to intake daily supplements of Vitamin B-12 and Nutritional Yeast through the Twilio API. 
+* Use React to make graphs more dynamic and allow users to view their past progress over a week or month. 
+* Allow users to add in their number of servings along with each meal.
