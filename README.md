@@ -22,7 +22,7 @@ Veganista is open source on Github.
 
 <img src="/Gifs/search.gif" alt="search">
 
-* Dish Directory: Users can click on the dish directory button, which routes to a function that grabs all the dishes from the dish table which that user has entered and passes it into an HTML template using jinja. As a result, users can see a list of all the dishes they have eaten. 
+* Dish Directory: Users can click on the dish directory button, which routes to a function that grabs all the dishes from the dish table which the user has entered and passes it into an HTML template using jinja. As a result, users can see a list of all the dishes they have eaten. 
 
 <img src="/Gifs/dish_directory.png" alt="dish_directory">
 
