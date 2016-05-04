@@ -30,7 +30,13 @@ Veganista is open source on Github.
 
 <img src="/Gifs/viewing_dishes_on_day_rs.gif" alt="dishes_time">
 
-* Daily nutritional progress: When users decide to view their daily nutritional progress, they have an option to click on the "view daily progress" button which routes to a function that uses SQLAlchemy to grab all the dishes on a certain date, query for those dish names in the dish nutrition table, get all the respective nutritional percentages of protein, fat and carbohydrates, add them up by macronutrient, and pass the macronutrient name and total percentage as a key, value pair into a javascript object, which then gets passed into a chart object using ChartJS. As a result, users view a bar chart that shows them the total percentages of fat, protein and carbohydrates they have consumed for the day, giving them an estimate of how much more they need to consume, or whether they have exceeded their daily recommendations. 
+* Daily nutritional progress: When users decide to view their daily nutritional progress, they have an option to click on the "view daily progress" button which routes to a function that:
+  * uses SQLAlchemy to grab all the dishes on a certain date
+  * query for those dish names in the dish nutrition table
+  * get all the respective nutritional percentages of protein, fat and carbohydrates and add them up by macronutrient
+  * pass the macronutrient name and total percentage as a key, value pair into a javascript object
+  * pass the javascript object into a chart object using ChartJS.
+  * As a result, users van view a bar chart that shows them the total percentages of fat, protein and carbohydrates they have consumed for the day, giving them an estimate of how much more they need to consume, or whether they have exceeded their daily recommendations. 
 
 <img src="/Gifs/bar_chart_rs.gif" alt="daily_time">
 
